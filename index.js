@@ -29,6 +29,10 @@ require('./routes/authRoutes')(app);
 //   res.send({ hi: 'hi there' });
 // });
 
+app.get('/', (req, res) => {
+    res.send('testing');
+  })
+
 const PORT = process.env.PORT || 5000;
 app.listen(PORT);
 
@@ -42,4 +46,6 @@ app.listen(PORT);
 //response_type=code&
 //redirect_uri=http%3A%2F%2Flocalhost%3A5000%2Fauth%2Fgoogle%2Fcallback&
 //scope=profile%20email&
-//client_id=880254029072-9pos9me2mntih6nmj4vk3skas1dmggjt.apps.googleusercontent.com
+
+//googleClientId= '880254029072-9pos9me2mntih6nmj4vk3skas1dmggjt.apps.googleusercontent.com'
+//googleClientSecret= 'MAmJFK7EvWcljmaeeHOfm6rc'
