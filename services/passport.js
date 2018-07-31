@@ -19,12 +19,14 @@ passport.deserializeUser((id, done) => {
 // app: doug-emaily-dev
 // clientID 880254029072-9pos9me2mntih6nmj4vk3skas1dmggjt.apps.googleusercontent.com
 // clientSecret MAmJFK7EvWcljmaeeHOfm6rc
+
+const domain = process.env.APPLICATION_DOMAIN || 'http://localhost:5000/'
 passport.use(
   new GoogleStrategy(
     {
       clientID: keys.googleClientID,
       clientSecret: keys.googleClientSecret,
-      callbackURL: '/auth/google/callback'
+      callbackURL: `${domain}auth/google/callback`
     },
     (accessToken, refreshToken, profile, done) => {
       User.findOne({ googleId: profile.id })
