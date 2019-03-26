@@ -30,6 +30,7 @@ passport.use(
       callbackURL: `${domain}auth/google/callback`
     },
     (accessToken, refreshToken, profile, done) => {
+      console.log('back here');
       User.findOne({ googleId: profile.id })
         .then(existingUser => {
           if (existingUser) {
