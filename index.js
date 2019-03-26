@@ -7,6 +7,12 @@ require('./models/User');
 require('./services/passport');
 
 mongoose.connect(keys.mongoURI);
+var db = mongoose.connection;
+db.on('error', console.error.bind(console, 'connection error:'));
+db.once('open', function() {
+  console.log('connected')
+});
+
 const app = express();
 
 app.use(
