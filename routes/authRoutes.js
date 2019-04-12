@@ -13,7 +13,13 @@ module.exports = app => {
   // allowing passport to know that the user is
   // already authenticated. It will therefore
   // get the user profile using the code
-  app.get('/auth/google/callback', passport.authenticate('google'));
+  app.get(
+    '/auth/google/callback', 
+    passport.authenticate('google'),
+    (req, res) => {
+      res.redirect('/surveys');
+    }    
+  );
 
   app.get('/api/logout', (req, res) => {
     req.logout();
