@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 const cookieSession = require('cookie-session');
 const passport = require('passport');
 const keys = require('./config/keys');
+const bodyParse = require('body-parser');
 require('./models/User');
 require('./services/passport');
 
@@ -15,6 +16,7 @@ db.once('open', function() {
 
 const app = express();
 
+app.use(bodyParse.json());
 app.use(
     cookieSession({
         maxAge: 30 * 24 * 60 * 60 * 1000, // in milli seconds
@@ -26,6 +28,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 require('./routes/authRoutes')(app);
+require('./routes/billingRoutes')(app);
 
 // app.post('/auth/google', (req, res) => {
 //   res.send({ hi: 'hi there' });

@@ -14,3 +14,6 @@ ReactDOM.render(
   <Provider store={store}><App /></Provider>, 
   document.querySelector('#root')
 );
+
+console.log('stripe key', process.env.REACT_APP_STRIPE_PUBLISHABLE_KEY)
+console.log('env is', process.env.NODE_ENV)

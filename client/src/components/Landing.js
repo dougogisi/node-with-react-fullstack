@@ -1,5 +1,4 @@
 import React from 'react';
-import Slider from './Slider';
 
 const Landing = () => {
   return (
@@ -8,8 +7,6 @@ const Landing = () => {
         Welcome
       </h1>
       Start building your snacks <a href="/">here</a>
-
-      <Slider />
     </div>
   )
 };
